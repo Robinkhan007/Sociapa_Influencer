@@ -1,0 +1,214 @@
+/* General Styles */
+.header {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  position: relative; /* Add this to position the hamburger icon */
+}
+
+.logo {
+  max-width: 120px;
+  margin-right: 20px;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  width: 100%;
+  /* border: 3px solid red; */
+  gap: 50px;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center; /* Center the links */
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+  display: flex;
+  /* width: 745px; */
+  /* border: 3px solid red; */
+  gap: 50px;
+  flex-grow: 1;
+  /* align-items: center; */
+  justify-content: center; /* Center the links */
+}
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.connect-button {
+  background-color: #fff;
+  color: #A80102;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+/* Open State */
+.bar.open {
+  background-color: #e50914;
+}
+
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  z-index: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.nav-links.open a,
+.nav-links.open .connect-button {
+  padding: 10px 0;
+}
+
+/* Main Content */
+.main-content {
+  margin-top: 50px;
+  text-align: center; /* Center the text */
+}
+
+.main-content h1 {
+  font-size: 3em;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.main-content .highlight {
+  color: #e50914; /* Red color for ROI and Influencer */
+}
+
+.main-content p {
+  margin-top: 20px;
+  font-size: 1.2em;
+}
+
+.buttons {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.buttons button {
+  margin: 0 10px;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.brand-button {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.influencer-button {
+  background-color: #fff;
+  color: #e50914;
+}
+
+/* Image Gallery Styles */
+.image-gallery {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.curved-img {
+  width: 22%;
+  height: auto;
+  border-radius: 30px;
+}
+
+/* Curve Effect */
+.image-gallery::before,
+.image-gallery::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20%;
+  background-color: #000;
+  z-index: 2;
+}
+
+.image-gallery::before {
+  left: -15%;
+  transform: skewX(-15deg);
+}
+
+.image-gallery::after {
+  right: -15%;
+  transform: skewX(15deg);
+}
+
+/* Responsive styling */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .main-content h1 {
+    font-size: 2em;
+  }
+
+  .buttons button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  .image-gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .curved-img {
+    width: 80%;
+    margin-bottom: 15px;
+  }
+
+  .image-gallery::before,
+  .image-gallery::after {
+    display: none;
+  }
+}
