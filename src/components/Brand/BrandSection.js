@@ -5,70 +5,121 @@ import "./BrandSection.css"; // Use for custom CSS styles
 const BrandSection = () => {
   const [brands, setBrands] = useState([]);
 
-  useEffect(() => {
-    // Fetch data from API
-    const fetchBrands = async () => {
-      try {
-        const response = await fetch(
-          "https://yh-be-staging.vercel.app/api/v1/get-partners"
-        );
-        const result = await response.json();
-        if (result.success) {
-          setBrands(result.data.findData);
-        }
-      } catch (error) {
-        console.error("Error fetching brands:", error);
-      }
-    };
-
-    fetchBrands();
-  }, []);
+  // Uncomment and configure the following useEffect for API call
+  // useEffect(() => {
+  //   const fetchBrands = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "https://yh-be-staging.vercel.app/api/v1/get-partners"
+  //       );
+  //       const result = await response.json();
+  //       if (result.success) {
+  //         setBrands(result.data.findData);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching brands:", error);
+  //     }
+  //   };
+  //   fetchBrands();
+  // }, []);
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 5 }}>
+    <Box maxWidth="lg" sx={{ mt: 5, border: "1px solid", maxWidth: "100%" }}>
       {/* Title Section */}
-      <Typography
-        variant="h4"
-        align="center"
-        gutterBottom
+      <Grid container spacing={4}>
+        {/* Left Cube Section */}
+        <Grid item xs={12} md={6}>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
         sx={{
-          borderBottom: "2px solid #000",
+          // borderBottom: "2px solid #000",
           display: "inline-block",
-          marginBottom: "40px",
-          paddingBottom: "10px",
+          // marginBottom: "40px",
+          // paddingBottom: "10px",
+          // border:"2px solid"
         }}
       >
         Brands That Trust Us
       </Typography>
-
-      <Grid container spacing={4}>
-        {/* Left Cube Section */}
-        <Grid item xs={12} md={6}>
-          <Box sx={{ textAlign: "center" }}>
-            <Typography variant="body1" paragraph style={{marginBottom:"40px"}}>
+          <Box sx={{ textAlign: "center" ,borderRight:"2px solid",lineHeight:"2px", padding:"10px 10px" }}>
+            <Typography variant="body1" paragraph style={{ marginBottom: "40px" }}>
               We work with visionary FMCG Brands. We are dedicated to building a
               brighter and clarified vision—from major companies to global
               nonprofits and everything in between.
             </Typography>
+            
             {/* Cube Section */}
-            <Box className="cube">
+            <Box className="cube" sx={{textAlign:"center"}}>
               <div className="cube-face cube-front">
-                <img src="c11.png" alt="Front Face" />
+                <div style={{
+                  position: "absolute",
+                  width: "60px",
+                  height: "60px",
+                  borderRadius: "50%",
+                  display: "flex",
+                  color: "black",
+                  backgroundColor: "#000000",
+                  alignItems: "center",
+                  justifyContent: "center"  // Add this line to center the icon horizontally
+                }}>
+                  <svg width="12" height="15" viewBox="0 0 12 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5 6.63398C12.1667 7.01888 12.1667 7.98112 11.5 8.36602L1.75 13.9952C1.08333 14.3801 0.25 13.899 0.25 13.1292L0.25 1.87083C0.25 1.10103 1.08333 0.619909 1.75 1.00481L11.5 6.63398Z" fill="white" />
+                  </svg>
+                </div>
+                <iframe
+                  src="https://www.youtube.com/embed/mRFsQgs1TmQ?autoplay=1&mute=1"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="cube-video"
+                ></iframe>
               </div>
               <div className="cube-face cube-back">
-                <img src="c11.png" alt="Back Face" />
+                <iframe
+                  src="https://www.youtube.com/embed/mRFsQgs1TmQ?autoplay=1&mute=1"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="cube-video"
+                ></iframe>
               </div>
               <div className="cube-face cube-left">
-                <img src="c11.png" alt="Left Face" />
+                <iframe
+                  src="https://www.youtube.com/embed/mRFsQgs1TmQ?autoplay=1&mute=1"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="cube-video"
+                ></iframe>
               </div>
               <div className="cube-face cube-right">
-                <img src="c11.png" alt="Right Face" />
+                <iframe
+                  src="https://www.youtube.com/embed/mRFsQgs1TmQ?autoplay=1&mute=1"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="cube-video"
+                ></iframe>
               </div>
               <div className="cube-face cube-top">
-                <img src="c11.png" alt="Top Face" />
+                <iframe
+                  src="https://www.youtube.com/embed/mRFsQgs1TmQ?autoplay=1&mute=1"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="cube-video"
+                ></iframe>
               </div>
               <div className="cube-face cube-bottom">
-                <img src="c11.png" alt="Bottom Face" />
+                <iframe
+                  src="https://www.youtube.com/embed/mRFsQgs1TmQ?autoplay=1&mute=1"
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="cube-video"
+                ></iframe>
               </div>
             </Box>
           </Box>
@@ -99,7 +150,7 @@ const BrandSection = () => {
           </Grid>
         </Grid>
       </Grid>
-    </Container>
+    </Box>
   );
 };
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react";  
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/header/header"; // Ensure the correct path to Header component
 // import Home from "./Home";
@@ -7,7 +7,10 @@ import Header from "./components/header/header"; // Ensure the correct path to H
 // import Contact from "./Contact";
 import "./App.css";
 import BrandsSection from "./components/Brand/BrandSection";
-import WhyChooseUs from "./components/whyChooseus";
+import WhyChooseUs from "./components/whyChooseUs/whyChooseus";
+import Testimonals from "./components/Testimonals/testimonal";
+import CaseStudy from "./components/CaseStudy/caseStudy";
+import GetInTouch from "./components/GetInTouch/getInTouch";
 
 function App() {
   return (
@@ -16,7 +19,10 @@ function App() {
         {/* Persistent Header */}
         <Header />
         <BrandsSection />
+         <CaseStudy/>
         <WhyChooseUs/>
+        <Testimonals/>
+        <GetInTouch/> 
 
         {/* Main Content Area */}
         <div className="content">

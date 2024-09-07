@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Header.css";
 import CurvedCarousel from "../curved/curvedCorousal"; // Import the CurvedCarousel component
+import { CiMenuFries } from "react-icons/ci";
+// import FontAwesomeIcon from '../h'
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,6 +20,7 @@ const Header = () => {
       <div className="navbar">
         <img src="sologo.png" alt="Logo" className="logo" />
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <div className="header-menu">
           <a href="#about" onClick={closeMenu}>
             ABOUT
           </a>
@@ -27,27 +30,33 @@ const Header = () => {
           <a href="#brand" onClick={closeMenu}>
             NEED BRAND
           </a>
-          <a href="#influencer" onClick={closeMenu}>
+          <a href="#influencer" className="need-influ" onClick={closeMenu}>
             NEED INFLUENCER
           </a>
           <a href="#contact" onClick={closeMenu}>
             CONTACT
           </a>
+          </div>
           <button className="connect-button" onClick={closeMenu}>
             Let's Connect
           </button>
         </div>
-        <div className="hamburger" onClick={toggleMenu}>
-          <div className={`bar ${menuOpen ? "open" : ""}`}></div>
-        </div>
+
+
+        {/* <div  onClick={toggleMenu}> */}
+        {/* <CiMenuFries /> */}
+        {/* <div className={`bar ${menuOpen ? "open" : ""}`}></div> */}
+        {/* <CiMenuFries className={`menu-icon ${menuOpen ? "open" : ""}`} /> */}
+
+        {/* </div> */}
       </div>
       <div className="main-content">
         <h1>
-          Get Real <span className="highlight">ROI</span> From{" "}
-          <span className="highlight">Influencer</span> Marketing
+          Get Real <span className="highlight">ROI</span> From
+          <span className="highlight"> Influencer</span> Marketing
         </h1>
-        <p>
-          A good design is not only aesthetically pleasing, but also functional.
+        <p className="main-title">
+          A good design is not only aesthetically pleasing, but also functional. <br/>
           It should be able to solve the problem.
         </p>
         <div className="buttons">

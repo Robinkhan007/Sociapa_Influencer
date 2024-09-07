@@ -3,56 +3,66 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  padding: 20px 30px;
-  perspective: 1000px; 
-background-color: #272727;
-border-top: 1px solid;
-clip-path: polygon(100% 1%, 100% 98%, 49% 95%, 0 98%, 0 1%, 48% 5%);
+  perspective: 1000px;
+  background-color: #272727;
+  border-top: 1px solid;
+  clip-path: polygon(100% 1%, 100% 98%, 49% 95%, 0 98%, 0 1%, 48% 5%);
+  display: flex;
+  justify-content: center;
 }
 
 /* Carousel Styling */
 .carousel {
   display: flex;
-  gap: 40px; 
-  animation: scroll 20s linear infinite;
+  gap: 40px;
+  justify-content: center;
+  border: 3px solid transparent;
   will-change: scroll-position;
-  transform-style: preserve-3d; 
+  transform-style: preserve-3d;
+  padding: 30px 0;
+  animation: autoScroll 20s linear infinite; /* Ensure infinite scrolling */
+
 }
 
 .carousel-img {
   min-width: 300px;
   height: 300px;
   object-fit: cover;
-  border-radius: 30px;
-  background: #fff;
+  border-radius: 20px;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #333;
+  color: #fff;
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  transition: transform 0.5s; /* Smooth transition */
+  transition: transform 0.5s;
 }
 
-.carousel-img:nth-child(1),
+/* Applying curve effects to images */
+.carousel-img:nth-child(1) {
+  transform: rotateY(30deg) translateX(-20px);
+}
+
 .carousel-img:nth-child(2) {
-  transform: rotateY(15deg); 
+  transform: rotateY(0deg) translateX(0px);
 }
 
-.carousel-img:nth-child(4),
+.carousel-img:nth-child(4) {
+  transform: rotateY(-45deg) translateX(10px);
+}
+
 .carousel-img:nth-child(5) {
-  transform: rotateY(-15deg); 
+  transform: rotateY(25deg) translateX(20px);
 }
 
-.carousel-img img {
-  width: 100%;
-  height: 100%;
-  border-radius: 30px;
+/* Adding shadows to enhance 3D effect */
+.carousel-img {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Curve Effect */
+/* Smooth infinite scrolling */
 .carousel-wrapper::before,
 .carousel-wrapper::after {
   content: '';
@@ -74,26 +84,66 @@ clip-path: polygon(100% 1%, 100% 98%, 49% 95%, 0 98%, 0 1%, 48% 5%);
   transform: skewX(20deg);
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc(-340px * 5));
-  }
-}
-
-
-
-
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-  .carousel-wrapper {
-    padding: 0 10px;
-  }
-
   .carousel-img {
     min-width: 250px;
     height: 250px;
   }
 }
+
+section {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  --v-offset: 60px;
+  --curve-height: 120px;
+
+
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+    background: black;
+    width: calc(100vw + 2 * var(--v-offset));
+    height: var(--curve-height);
+    position: absolute;
+    border-radius: 50%;
+    left: calc(-1 * var(--v-offset));
+    right: calc(-1 * var(--v-offset));
+
+    
+  }
+
+  &:before {
+    top: calc(-0.6 * var(--curve-height));
+  }
+  &:after {
+    bottom: calc(-0.6 * var(--curve-height));
+  }
+}
+
+.wrapper {
+  display: grid;
+  /* grid-template-rows: 300px; */
+  grid-auto-flow: column;
+  grid-gap: 24px;
+  overflow: auto;
+  /* scroll-snap-type: x mandatory; */
+  
+  scroll-behavior: smooth;
+
+
+
+  img {
+    scroll-snap-align: center;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for images */
+
+
+  }
+}
+
+
+
+
+

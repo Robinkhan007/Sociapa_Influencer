@@ -1,0 +1,28 @@
+.border-segment {
+    position: relative;
+    border-bottom: 1px solid black;
+    margin: 0 1rem;
+    text-align: center;
+  }
+  
+  .border-segment::before,
+  .border-segment::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+  }
+  
+  .border-segment::before {
+    left: 0;
+    transform: translateX(-50%);
+  }
+  
+  .border-segment::after {
+    right: 0;
+    transform: translateX(50%);
+  }
+  

@@ -33,7 +33,7 @@ const WhyChooseUs = () => {
       <Typography
         variant="body1"
         
-        sx={{ margin: "1rem 0", maxWidth: "800px", marginX: "auto"}}
+        sx={{ margin: "1rem 0", maxWidth: "800px", marginX: "auto" , fontWeight: 700}}
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -52,22 +52,22 @@ const WhyChooseUs = () => {
         sx={{ marginTop: "2rem" }}
       >
         <Grid item xs={12} sm={4}>
-          <Typography variant="h4" sx={{ fontWeight: "bold", color: "red" }}>
+          <Typography variant="h4" sx={{ fontWeight: "bold", color: "#A80102",fontWeight: 700,height: '50px' }}>
             50+
           </Typography>
-          <Typography variant="subtitle1">CLIENTS</Typography>
+          <Typography variant="subtitle1" sx={{fontWeight: 700}}>CLIENTS</Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
-          <Typography variant="h4" sx={{ fontWeight: "bold", color: "red" }}>
+          <Typography variant="h4" sx={{ fontWeight: "bold", color: "#A80102" }}>
             5+
           </Typography>
-          <Typography variant="subtitle1">YEARS OF EXPERIENCE</Typography>
+          <Typography variant="subtitle1" sx={{fontWeight: 700}}>YEARS OF EXPERIENCE</Typography>
         </Grid>
         <Grid item xs={12} sm={4}>
-          <Typography variant="h4" sx={{ fontWeight: "bold", color: "red" }}>
+          <Typography variant="h4" sx={{ fontWeight: 700, fontWeight: "bold",color: "#A80102" }}>
             150+
           </Typography>
-          <Typography variant="subtitle1">PROJECTS</Typography>
+          <Typography variant="subtitle1" sx={{fontWeight: 700}}>PROJECTS</Typography>
         </Grid>
       </Grid>
     </Box>
@@ -75,3 +75,22 @@ const WhyChooseUs = () => {
 };
 
 export default WhyChooseUs;
+
+
+// import React from 'react';
+// import './whyChooseus.css'
+
+// const WhyChooseUs = () =>{
+//   return(
+//     <>
+// <div class="main-block">
+//   <div class="border-segment">
+//     Why Choose Us
+//   </div>
+// </div>
+
+//     </>
+//   )
+// }
+
+// export default WhyChooseUs
